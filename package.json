@@ -1,6 +1,7 @@
 {
   "name": "todo-list",
   "version": "0.0.0",
+  "description": "Web application for Exadel Internship project. It is kinda online bank",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +26,14 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asadbek2021/piggy-bank-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asadbek2021/piggy-bank-front/issues"
+  },
+  "homepage": "https://github.com/asadbek2021/piggy-bank-front#readme",
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.0",
     "@angular-eslint/builder": "^12.2.1",
