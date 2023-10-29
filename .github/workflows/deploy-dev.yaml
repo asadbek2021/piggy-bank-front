@@ -25,6 +25,7 @@ jobs:
               print 'Cloned successfully!'
 
   deploy:
+    needs: clone_repo
     runs-on: ubuntu-latest
     environment: Development
     strategy:
