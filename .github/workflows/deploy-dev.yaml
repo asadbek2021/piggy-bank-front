@@ -39,7 +39,7 @@ jobs:
       - name: Check for node version
         uses: actions/setup-node@v3
         with:
-          node-version: ${{metrix.node-version}}
+          node-version: ${{matrix.node-version}}
       - run: npm ci; npm run build; npm run start
         with:
           scripts: |
