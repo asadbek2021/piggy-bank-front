@@ -42,13 +42,13 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
         - name: Connect to Server
-          uses: canastro/copy-file-action@master
+          uses: garygrossgarten/github-action-scp@release
           with: 
             host: ${{secrets.SSH_HOST}}
             key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
-            target: "coverage/deploy_coverage"
-            source: "/var/www/bookreviews.uz/html"
+            local: "coverage/deploy_coverage"
+            remote: "/var/www/bookreviews.uz/html"
             srcipts: |
               ll /var/www/bookreviews.uz/html
 
