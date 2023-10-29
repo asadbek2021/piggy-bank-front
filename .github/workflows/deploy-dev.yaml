@@ -32,6 +32,7 @@ jobs:
       - run: mkdir ~/distfiles
       - run: ls -R
       - uses: actions/download-artifact@v2
+      - run: ls -R
         with:
           name: distfiles
           path: distfiles
