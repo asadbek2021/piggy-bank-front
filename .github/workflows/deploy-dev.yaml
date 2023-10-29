@@ -7,11 +7,44 @@ on:
       - "main"
 
 jobs:
-  clone_repo: 
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: deploy_dist
+          path: dist
+      - name: Archive code coverage result
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: deploy_coverage
+          path: coverage
+
+  deploy: 
+      needs: build
+      strategy:
+          matrix:
+            node-version: ['16.x', '18.x']
       runs-on: ubuntu-latest
       environment: Development
       steps:
-        - name: Clone repository
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Download build
           uses: appleboy/ssh-action@v1.0.0
           with: 
             host: ${{secrets.SSH_HOST}}
@@ -19,31 +52,19 @@ jobs:
             username: ${{secrets.SSH_USERNAME}}
             srcipts: |
               cd /server
-              mdir piggy-bank-frontend
-              cd piggy-bank-frontend
-              git clone git@github.com:asadbek2021/piggy-bank-front.git
-              print 'Cloned successfully!'
-
-  deploy:
-    needs: clone_repo
-    runs-on: ubuntu-latest
-    environment: Development
-    strategy:
-      matrix:
-        node-version: ['16.x', '18.x']
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{matrix.node-version}}
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
-          srcipts: |
-              cd /server/piggy-bank-frontend
-      - run: npm ci && npm run build && npm run start
-      - run: echo 'Successfully deployed'
+              mdir piggy-bank-front
+              cd piggy-bank-front
+        - name: Download build
+          uses: actions/download-artifact@v3
+          with:
+            name: my-artifact
+            path: /server/piggy-bank-front
+        - name: Display structure of downloaded files
+          run: ls -R
+          working-directory: /server/piggy-bank-front
+        - name: 'Echo download path'
+          run: echo ${{steps.download.outputs.download-path}}
+        - run: echo 'Successfully deployed'
 
           
           
