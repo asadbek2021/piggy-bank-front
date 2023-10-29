@@ -18,7 +18,7 @@ jobs:
             key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
             srcipts: |
-              cd /
+              cd /server
               mdir piggy-bank-frontend
               cd piggy-bank-frontend
               git clone git@github.com:asadbek2021/piggy-bank-front.git
@@ -36,6 +36,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
+      - run: cd /server/
       - run: npm ci; npm run build; npm run start
       - run: echo 'Successfully deployed'
 
