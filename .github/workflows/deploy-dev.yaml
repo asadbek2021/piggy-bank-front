@@ -36,35 +36,21 @@ jobs:
 
   deploy: 
       needs: build
-      strategy:
-          matrix:
-            node-version: ['16.x', '18.x']
       runs-on: ubuntu-latest
       environment: Development
       steps:
         - name: Checkout
           uses: actions/checkout@v4
-        - name: Download build
-          uses: appleboy/ssh-action@v1.0.0
+        - name: Connect to Server
+          uses: canastro/copy-file-action@master
           with: 
             host: ${{secrets.SSH_HOST}}
             key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
+            target: "coverage/deploy_coverage"
+            source: "/var/www/bookreviews.uz/html"
             srcipts: |
-              cd /server
-              mdir piggy-bank-front
-              cd piggy-bank-front
-        - name: Download build
-          uses: actions/download-artifact@v3
-          with:
-            name: my-artifact
-            path: /server/piggy-bank-front
-        - name: Display structure of downloaded files
-          run: ls -R
-          working-directory: /server/piggy-bank-front
-        - name: 'Echo download path'
-          run: echo ${{steps.download.outputs.download-path}}
-        - run: echo 'Successfully deployed'
+              ll /var/www/bookreviews.uz/html
 
           
           
