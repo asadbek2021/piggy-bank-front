@@ -21,26 +21,13 @@ jobs:
         run: npm ci --force
       - name: Build
         run: npm run build
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: dist
-
-      - uses: actions/download-artifact@v3
-        with:
-          name: my-artifact
-          path: distfiles
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Connect to Server
         uses: appleboy/scp-action@v0.1.4
         with: 
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
-          source: "distfiles/*"
+          source: "dist/*"
           target: "/var/www/bookreviews.uz/html/"
 
           
