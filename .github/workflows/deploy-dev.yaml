@@ -45,12 +45,11 @@ jobs:
           uses: garygrossgarten/github-action-scp@release
           with: 
             host: ${{secrets.SSH_HOST}}
-            key: ${{secrets.SSH_KEY}}
+            privateKey: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
             local: "coverage/deploy_coverage"
             remote: "/var/www/bookreviews.uz/html"
-            srcipts: |
-              ll /var/www/bookreviews.uz/html
+            recursive: true
 
           
           
