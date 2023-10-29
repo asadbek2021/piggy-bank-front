@@ -31,8 +31,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v3
         with:
-          name: deploy_coverage
-          path: coverage
+          name: artifact
 
   deploy: 
       needs: build
@@ -47,7 +46,7 @@ jobs:
             host: ${{secrets.SSH_HOST}}
             privateKey: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
-            local: "coverage/deploy_coverage"
+            local: "artifact"
             remote: "/var/www/bookreviews.uz/html"
             recursive: true
 
