@@ -1,16 +1,13 @@
 name: Build & Deploy
 
 on:
-
   push:
 
     branches:
       - "main"
 
 jobs:
-
   clone_repo: 
-
       runs-on: ubuntu-latest
       environment: Development
       steps:
@@ -18,18 +15,16 @@ jobs:
           uses: appleboy/ssh-action@v1.0.0
           with: 
             host: ${{secrets.SSH_HOST}}
-            key: ${{secrets.SSH_KEYS}}
+            key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
         - run: ./deploy/clone.sh
 
   deploy:
-
     runs-on: ubuntu-latest
     environment: Development
     strategy:
       matrix:
         node-version: ['16.x', '18.x']
-
     steps:
       - name: Check for node version
         uses: actions/setup-node@v3
