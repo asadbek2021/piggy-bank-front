@@ -20,12 +20,7 @@ jobs:
             host: ${{secrets.SSH_HOST}}
             key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
-
-            scripts: |
-              cd /
-              mdir piggy-bank-frontend
-              cd piggy-bank-frontend
-              git clone git@github.com:asadbek2021/piggy-bank-front.git
+        - run: ./deploy/clone.sh
 
   deploy:
 
@@ -41,9 +36,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - run: npm ci; npm run build; npm run start
-        with:
-          scripts: |
-            echo 'Project deployed and build successfully' 
+      - run: echo 'Successfully deployed'
 
           
           
