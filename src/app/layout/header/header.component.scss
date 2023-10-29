@@ -1,0 +1,54 @@
+@use 'src/variables.scss' as var;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 20px 40px ;
+  color: var.$app-white;
+  &__icon-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__logo{
+    font-size: 2rem;
+    text-align: center;
+    align-self: center;
+    & a{
+      text-decoration: none;
+      font-family: 'Alata';
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 28px;
+      color: #000000;
+    }
+  }
+  &__account{
+    align-self: center;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    & .acc-icon{
+      color: #000000;
+    }
+    & .account-icon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+     a {
+        font-family: 'Space Grotesk';
+        color: var.$base-color;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        text-decoration: none;
+        transition: all .3s ease-in-out;
+       &:hover{
+        color: var.$base-color;
+      }
+     }
+  }
+}

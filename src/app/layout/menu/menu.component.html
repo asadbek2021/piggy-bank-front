@@ -1,0 +1,7 @@
+<nav class="menu">
+  <ul class="menu__list">
+    <li *ngFor="let item of menu; trackBy:trackBy" class="menu__list-item">
+      <a routerLink="{{item.route}}" routerLinkActive="router-link-active" >{{item.title}}</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,22 @@
+<div class="container">
+  <header class="header">
+    <div class="header__logo">
+      <a routerLink="/main">Budgetify</a>
+    </div>
+    <app-menu></app-menu>
+    <div class="header__account">
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <span class="account-icon">
+          <mat-icon class="acc-icon">person</mat-icon>
+        </span>
+        <a class="header__account-name" >Account Name</a>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onLogout()">Logout</button>
+      </mat-menu>
+
+
+    </div>
+  </header>
+</div>

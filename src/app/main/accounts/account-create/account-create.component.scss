@@ -1,0 +1,56 @@
+@use 'src/variables.scss' as var;
+.account{
+  font-family: 'Space Grotesk';
+  color: var.$app-gray-lighter;
+  min-height: 100vh;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  &-title{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 41px;
+    margin-bottom: 0;
+  }
+
+  &-close{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    & .mat-icon{
+      font-size: 38px;
+    }
+  }
+
+  &__content{
+
+    &-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    &-form{
+      min-height: 100vh;
+      padding: 38px 34px 29px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      height: 100%;
+    }
+    .form-content{
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+
+    }
+
+    .form-action{
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+  }
+}

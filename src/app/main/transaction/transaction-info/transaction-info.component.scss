@@ -1,0 +1,133 @@
+@use 'src/variables.scss' as var;
+.transaction{
+  padding: 39px 35px 28px;
+  font-family: 'Space Grotesk';
+  color: var.$app-gray-lighter;
+
+  &__top{
+    display: flex;
+    gap: 26px;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 27px;
+    &-action{
+      display: flex;
+      gap: 16px;
+      flex-direction: row;
+
+      & span{
+        cursor: pointer;
+        & .mat-icon{
+          font-size: 36px;
+        }
+      }
+    }
+
+    &-title{
+      font-family: 'Space Grotesk';
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 41px;
+      color: #373737;
+      margin-bottom: 0;
+    }
+
+  }
+  &__type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    & .type-label{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      & .type-icon{
+        width: 35px;
+        height: 35px;
+        color: var.$white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        &.expense{
+        background: var.$app-red;
+        }
+        &.income{
+        background: var.$app-green;
+        }
+      }
+    }
+
+    & .amount {
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 46px;
+      &.expense{
+        color: var.$app-red;
+      }
+      &.income{
+        color: var.$app-green;
+      }
+     }
+  }
+
+  &__content{
+    &-title{
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 24px;
+    }
+    &-info{
+      display: flex;
+      flex-direction: column;
+
+      & .info-row{
+        & .info-type{
+          width: 150px;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 26px;
+          margin-bottom: 16px;
+        }
+        & .info-text{
+          width: 312px;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 26px;
+          margin-bottom: 16px;
+        }
+        display: flex;
+        gap: 39px;
+        border-bottom: 1px solid #333333;
+        margin-bottom: 15px;
+      }
+      & .info-row:last-child{
+        border: none;
+      }
+    }
+
+    &-categories{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+      & span{
+        padding: 17px 20px 22px;
+        min-width: 150px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 26px;
+        text-align: center;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+@use 'src/variables.scss' as var;
+.hidden-type{
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+}
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+
+.transaction{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  & .form{
+    padding: 39px 34px 28px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  &__top{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bottom{
+    align-self: flex-end;
+  }
+
+  & .close-btn{
+    position: absolute;
+    right: 34px;
+    top: 39px;
+    font-weight: 700;
+
+    & .mat-icon{
+      font-size: 35px;
+    }
+  }
+  & .type-actions {
+    display: flex;
+  }
+  & .type-actions .btn {
+    font-family: 'Space Grotesk';
+    border: 2px solid #373737;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: var.$app-gray-lighter;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7.5px 9.5px 6.5px;
+
+    &.not-active{
+      opacity: 0.5;
+    }
+    & .label{
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var.$white;
+    }
+    & .label.expense{
+      background-color: var.$app-red;
+    }
+    & .label.income{
+      background-color: var.$app-green;
+    }
+  }
+
+  &__top-type{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+  }
+  & .btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__form{
+    padding-top: 31px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+  &__bottom{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    & .btn-save{
+      background: var.$app-blue;
+    }
+    & .btn{
+      font-family: 'Space Grotesk';
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      padding: 10px 10px 13px;
+      width: 97px;
+      border-radius: 10px;
+    }
+  }
+}
+
+:ng-deep  .mat-button-wrapper{
+  display: flex;
+  align-items: center;
+}
+ .mat-button-wrapper{
+  display: flex;
+  align-items: center;
+}

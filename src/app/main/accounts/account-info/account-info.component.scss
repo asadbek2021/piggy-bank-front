@@ -1,0 +1,61 @@
+.account {
+  min-height: 100vh;
+  font-family: 'Space Grotesk';
+  color: #373737;
+
+  &__content{
+    min-height: 100vh;
+    padding: 34px 34px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-bottom{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .top-heading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 34px;
+  }
+  &-title{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 41px;
+  }
+  .btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    .mat-icon{
+      font-size: 34px;
+    }
+  }
+
+  .top-actions{
+    display: flex;
+    gap: 11px;
+  }
+
+  .info-row{
+    display: flex;
+    gap: 66px;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 15px;
+  }
+
+  .info-header{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    width: 120px;
+  }
+
+  .info-text{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    width: 295px;
+  }
+}

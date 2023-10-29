@@ -1,0 +1,53 @@
+.dialog{
+    padding: 5px;
+    font-family: 'Space Grotesk';
+    color: #373737;
+    min-width: 625px;
+    &__content{
+      &-ask{
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 31px;
+        margin-bottom: 25px;
+      }
+      &-action{
+        display: flex;
+        justify-content: flex-end;
+        gap: 17px;
+  
+        & button{
+          width: 97px;
+        }
+      }
+    }
+    &__top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      &-title{
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 41px;
+        margin-bottom: 0;
+      }
+      & button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        width: 70px;
+        height: 70px;
+        & .mat-button-wrapper{
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 26px;
+        }
+        
+        & .mat-icon{
+        font-size: 34px;
+        }
+      }
+    }
+  }
+  

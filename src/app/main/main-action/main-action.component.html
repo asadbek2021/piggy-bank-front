@@ -1,0 +1,59 @@
+<div class="create-transaction">
+      <div class="create-transaction-action">
+        <div class="transaction-filter">
+          <button class=" btn income-filter" (click)="onSelect('income')" >
+            <span class="transaction-label">
+              <mat-icon>arrow_downward</mat-icon>
+            </span>
+            <span class="transaction-text">Income</span>
+          </button>
+          <button class="btn expense-filter"  (click)="onSelect('expense')">
+            <span class="transaction-label">
+              <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span class="transaction-text">Expenses</span>
+          </button>
+          <button class="btn add-btn">
+            <span class="transaction-label">
+              <mat-icon>add</mat-icon>
+            </span>
+            <span class="transaction-text" (click)="onAddTransaction()">Add Transaction</span>
+          </button>
+          <button class="btn add-btn" (click)="onAddAccount()">
+            <span class="transaction-label">
+              <mat-icon>add</mat-icon>
+            </span>
+            <span class="transaction-text">Add Account</span>
+          </button>
+
+        </div>
+      </div>
+      <div class="create-transaction-piggybank">
+        <button class="btn add-btn">
+          <span class="transaction-label">
+            <span><img src=".//src/assets/icons/piggy-bank-icon.png" alt="png"></span>
+          </span>
+          <span class="transaction-text">Add Piggy Bank</span>
+        </button>
+        <div class="piggy-bank-list">
+
+          <button class="btn piggy-bank-item">
+            <span class=" piggy-bank-label">
+              <span><img src=".//src/assets/icons/piggy-bank-icon.png" alt="png"></span>
+            </span>
+            <span class="piggybank-item-content">
+              <span class="piggybank__info">
+                <span class="piggybank__info-text">
+                  <p class="piggybank-title">Car</p>
+                <span class="piggybank-amount">{{'1520' | currency:'symbol':''}} / {{'4500' | currency}}</span>
+                </span>
+                <span class="piggybank-add">
+                  <mat-icon>add</mat-icon>
+                </span>
+              </span>
+              <span class="piggybank-progress"> <span class="progress-runner" [ngStyle]="{width: '50%'}"> </span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+</div>

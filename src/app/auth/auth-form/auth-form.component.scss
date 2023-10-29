@@ -1,0 +1,67 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(256, 256, 256, 0.8);
+  padding: 61px 83px 74px;
+
+&__title{
+  font-family: 'Alata';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 55px;
+  text-transform: capitalize;
+  color: #000000;
+}
+ & .mat-label{
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+   }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 30px;
+  }
+
+    &__row{
+    width: 350px;
+  }
+
+  &__auth{
+    display: contents;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__btn {
+    width: 100%;
+    margin-top: 4px;
+    background: #B9E2E6;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-family: 'Space Grotesk';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
+
+.wrapper{
+  min-height: 100vh;
+  width: 100%;
+  background: url('./images/money-savings-currency-fingers.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

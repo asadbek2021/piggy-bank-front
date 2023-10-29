@@ -1,0 +1,85 @@
+<div class="transaction">
+  <form class="form" (ngSubmit)="onSubmit()" [formGroup]="transactionForm">
+    <div class="transaction__top">
+      <h1 class="transaction__title">{{editMode ?  'Edit Transaction': 'Create Transaction'}}</h1>
+      <button type="button" class=" btn close-btn" (click)="onCloseSidenav()"><mat-icon>close</mat-icon></button>
+      <div class="transaction__top-type">
+        <input type="text" class="hidden-type" name="type" formControlName="type" #type>
+       <div class="type-actions">
+        <button type="button"  class="btn" (click)="onSetValue('expense')" [ngClass]="[currentType ==='income' ? 'not-active':'']">
+          <span class="label expense"><mat-icon>arrow_upward</mat-icon></span>
+          <span class="type-text">Expense</span>
+        </button>
+        <button type="button"  class="btn" (click)="onSetValue('income')" [ngClass]="[currentType ==='expense' ? 'not-active':'']">
+          <span class="label income"><mat-icon>arrow_downward</mat-icon></span>
+          <span class="type-text">Income</span>
+        </button>
+       </div>
+       <p style="color:red" *ngIf="!currentType && type.classList.contains('touched')">Type is required</p>
+      </div>
+      <div class="transaction__form">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" >
+        </mat-form-field>
+
+        <mat-form-field class="example-chip-list" appearance="outline">
+          <mat-label>Categories</mat-label>
+          <mat-chip-list #chipList aria-label="Category selection">
+            <mat-chip
+              *ngFor="let category of categories"
+              (removed)="remove(category)">
+              {{category}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="New category.."
+              #categoryInput
+              [formControl]="categoryCtrl"
+              [matAutocomplete]="auto"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let categ of filteredCategories | async" [value]="categ">
+              {{categ}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" min="0" formControlName="amount" >
+          <span matSuffix>.00</span>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Payment Date</mat-label>
+          <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="date_of_payment" >
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Payee</mat-label>
+          <input matInput formControlName="payee" >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" ></textarea>
+        </mat-form-field>
+      </div>
+  </div>
+
+
+  <div class="transaction__bottom">
+    <button class="btn btn-cancel" type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button class="btn btn-save" [disabled]="transactionForm.invalid" type="submit" >Save</button>
+  </div>
+  </form>
+
+</div>

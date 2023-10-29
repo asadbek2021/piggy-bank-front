@@ -1,0 +1,139 @@
+@use 'src/variables.scss' as var;
+.create-transaction {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 21px;
+}
+
+.transaction-label{
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-filter .transaction-label{
+  background: var.$app-red;
+  color: var.$white;
+}
+.income-filter .transaction-label{
+  background: var.$app-green;
+  color: var.$white;
+}
+
+.transaction-filter{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: var.$app-white;
+  border-radius: 10px;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.transaction-text{
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: var.$app-gray-lighter;
+}
+
+.add-btn{
+  background: var.$app-blue;
+}
+.add-btn .transaction-label{
+  background: var.$white;
+  color: var.$app-blue;
+}
+
+.create-transaction-piggybank{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.piggy-bank-list{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.piggy-bank-item{
+  background: var.$app-pink-lighter;
+}
+
+.piggy-bank-item{
+  padding: 6px 7px 9px 9px;
+}
+
+.piggybank__info{
+  display: flex;
+  justify-content: space-between;
+  &-text{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.piggybank-title{
+  margin-bottom: 0;
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #373737;
+  align-self: self-start;
+}
+.piggybank-item-content{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.piggybank-amount{
+  margin-bottom: 0;
+  font-family: 'Space Grotesk';
+  font-size: 13;
+  line-height: 17px;
+  color: #373737;
+  align-self: self-start;
+}
+
+.piggy-bank-label, .piggybank-add{
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var.$white;
+  font-family: 'Space Grotesk';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 51px;
+  color: var.$app-pink;
+}
+
+.piggybank-progress{
+  display: block;
+  background: var.$white;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+}
+.progress-runner{
+  display: block;
+  background: var.$app-pink;
+  height: 5px;
+  border-radius: 5px;
+}

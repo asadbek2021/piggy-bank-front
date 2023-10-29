@@ -1,0 +1,15 @@
+<div class="dialog">
+    <div class="dialog__top">
+      <h3 class="dialog__top-title">Delete Account</h3>
+      <button mat-dialog-close><mat-icon>close</mat-icon></button>
+    </div>
+    <div class="dialog__content">
+      <p class="dialog__content-ask">Are you sure you want to delete account?</p>
+      <p>PS: All information including this account will be removed?</p>
+      <div class="dialog__content-action">
+        <button mat-dialog-close class="" mat-raised-button (click)="onDelete()">Yes</button>
+        <button mat-dialog-close class="" mat-raised-button  color="primary">No</button>
+      </div>
+    </div>
+  </div>
+  

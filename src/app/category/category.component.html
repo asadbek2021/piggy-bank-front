@@ -1,0 +1,14 @@
+<div class="category__wrapper">
+  <div class="container">
+    <app-search></app-search>
+    <div class="categories">
+      <div *ngFor="let category of categories" class="categories__btn" [ngClass]="[category.type=='expense'? 'expense':'income']">
+        <p>{{category.title}}</p>
+        <span class="categories__action">
+          <button class="categories__action-btn"><mat-icon>edit</mat-icon></button>
+          <button class="categories__action-btn"><mat-icon>delete</mat-icon></button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

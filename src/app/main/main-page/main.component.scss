@@ -1,0 +1,19 @@
+.main{
+  &__row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &__accounts{
+    width: 430px;
+  }
+  &__content{
+    width: 617px;
+  }
+  &__side{
+    width: 235px;
+  }
+  height: calc(100vh - 119px);
+
+}

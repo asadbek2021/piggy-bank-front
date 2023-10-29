@@ -1,0 +1,5 @@
+<mat-form-field  appearance="outline" class="search">
+  <mat-label>Search</mat-label>
+  <mat-icon matPrefix class="search-icon">search</mat-icon>
+  <input matInput #search (input)="onInput(search.value)">
+</mat-form-field>

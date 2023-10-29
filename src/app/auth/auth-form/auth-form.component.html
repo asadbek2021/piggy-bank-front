@@ -1,0 +1,17 @@
+
+  <div class="wrapper">
+    <div class="auth-form">
+      <h3 class="auth-form__title">Budgetify</h3>
+     <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form__form">
+      <mat-form-field class="auth-form__row" appearance="outline">
+        <mat-label>Email</mat-label>
+         <input type="email" matInput placeholder="email@domain.com" formControlName="email" autocomplete="email"/>
+     </mat-form-field>
+     <mat-form-field class="auth-form__row" appearance="outline">
+        <mat-label>Password</mat-label>
+         <input type="password" matInput  formControlName="password" autocomplete="off" />
+     </mat-form-field>
+     <button type="submit" class="auth-form__btn" color="primary" mat-raised-button [disabled]="loginForm.invalid">Login</button>
+     </form>
+  </div>
+  </div>

@@ -1,0 +1,24 @@
+.search {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  &-icon{
+    color: #474747;
+  }
+  outline: none;
+  & div{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+::ng-deep .mat-form-field-outline{
+  background: #F9F9F9;
+  color: #F9F9F9;
+}
+
+
+::ng-deep  .mat-form-field-wrapper{
+  padding: 0;
+  margin: 0;
+}

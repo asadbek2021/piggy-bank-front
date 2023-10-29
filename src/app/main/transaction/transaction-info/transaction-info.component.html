@@ -1,0 +1,48 @@
+<div class="transaction">
+  <div class="transaction__top">
+  <h3 class="transaction__top-title" >Transaction information</h3>
+    <div class="transaction__top-action">
+      <span (click)="onEdit()"><mat-icon>edit</mat-icon></span>
+      <span (click)="onDelete()"><mat-icon>delete</mat-icon></span>
+      <span (click)="onClose()"><mat-icon>close</mat-icon></span>
+    </div>
+  </div>
+  <div class="transaction__type">
+    <span class="type-label">
+      <span class="type-icon"
+      ngClass="{{transaction.type === 'expense' ? 'expense' : 'income' }}">
+        <mat-icon>arrow_{{transaction.type === "expense" ? 'upward' : 'downward'}}</mat-icon>
+      </span>
+      <span class="type-text">{{transaction.type === "expense" ? 'Expenses' : 'Income'}}</span>
+    </span>
+    <span class="amount"
+    ngClass="{{transaction.type === 'expense' ? 'expense' : 'income' }}">
+    {{transaction.amount | currency: 'symbol': currentAccount.sign}}
+  </span>
+  </div>
+  <div class="transaction__content">
+    <h5 class="transaction__content-title">{{transaction.title}}</h5>
+    <div class="transaction__content-categories">
+      <span *ngFor="let item of transaction.categories">{{item}}</span>
+    </div>
+    <div class="transaction__content-info">
+      <div class="info-row">
+        <p class="info-type">Payment Date:</p>
+        <p class="info-text">{{transaction.date_of_operation  | date: 'dd.MM.YYYY'}}</p>
+      </div>
+      <div class="info-row">
+        <p class="info-type">Payee:</p>
+        <p class="info-text">{{transaction.payee}}</p>
+      </div>
+      <div class="info-row">
+        <p class="info-type">Description:</p>
+        <p class="info-text">
+         {{transaction.description}}
+        </p>
+      </div>
+    </div>
+    <div class="transaction__content-files">
+      <p>No files...</p>
+    </div>
+  </div>
+</div>

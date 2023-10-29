@@ -1,0 +1,59 @@
+.not-found{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-family: 'Space Grotesk';
+  min-height: calc(100vh - 200px);
+  
+
+   &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 161px;
+
+    &-image{
+      height: 100%;
+      width: 658px;
+      & img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__title{
+    font-family: 'Alata';
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 75px;
+  }
+  &__subtext{
+
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 66px;
+    margin-bottom: 30px;
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    max-width: 397px;
+  }
+  &__btn{
+    z-index: 100;
+    font-family: 'Alata';
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 29px;
+    padding: 12px 60px;
+    background: #0EA6E7;
+    color: #FFF;
+
+  }
+}

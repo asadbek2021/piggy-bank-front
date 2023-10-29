@@ -1,0 +1,35 @@
+.menu {
+  &__list{
+    display: flex;
+    list-style: none;
+    gap: 37px;
+    &-item a{
+      font-family: 'Space Grotesk';
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      color: #373737;
+      cursor: pointer;
+      transition: .3s all ease-in-out;
+      text-decoration: none;
+      &::after{
+        content: '';
+        display: block;
+        width: 100%;
+        opacity: 0;
+        height: 1px;
+        background-color: #000;
+        transition: .3s all ease-in-out;
+        margin-top: 2px;
+      }
+      &:hover::after{
+        opacity: 1;
+      }
+      &.router-link-active::after{
+        opacity: 1;
+      }
+
+
+    }
+  }
+}

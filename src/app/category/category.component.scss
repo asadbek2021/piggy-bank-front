@@ -1,0 +1,45 @@
+@use 'src/variables.scss' as var;
+.categories{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 27px;
+  row-gap: 24px;
+
+  &__action{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    &-btn{
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+  &__btn{
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px 18px 17px 14px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: var.$app-gray-lighter;
+
+
+    &.expense{
+      border-color: var.$app-red;
+    }
+    &.income{
+      border-color: var.$app-green;
+    }
+
+    & p {
+      margin: 0;
+    }
+  }
+}

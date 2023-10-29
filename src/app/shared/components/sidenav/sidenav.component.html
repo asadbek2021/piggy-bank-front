@@ -1,0 +1,12 @@
+<div class="sidenav" [ngClass]="[isOpen ? 'show':'']">
+  <div class="sidenav__backdrop" (click)="onClose()">
+
+  </div>
+  <div class="sidenav__aside" [ngClass]="[isOpen ? 'open':'']">
+    <app-transaction-create *ngIf="sidenavContent === 'main' "></app-transaction-create>
+    <app-transaction-info *ngIf="sidenavContent === 'transaction-info'"></app-transaction-info>
+    <app-account-info *ngIf="sidenavContent === 'account-info'"></app-account-info>
+    <app-category-create *ngIf="sidenavContent === 'category-create'"></app-category-create>
+    <app-account-create *ngIf="sidenavContent === 'account-create'"></app-account-create>
+  </div>
+</div>

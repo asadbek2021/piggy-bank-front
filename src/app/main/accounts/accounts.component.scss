@@ -1,0 +1,54 @@
+@use 'src/variables.scss' as var;
+
+.accounts__wrapper{
+  display: flex;
+  flex-direction: column;
+  row-gap: 49px;
+}
+
+.account{
+  &.active{
+    filter: unset;
+  }
+  padding: 13px 19px 37px 23px;
+  background: linear-gradient(155deg, rgba(254,145,137,1) 0%, rgba(237,151,211,1) 50%, rgba(133,170,223,1) 100%);
+  color: var.$white;
+  font-family: 'Space Grotesk';
+  display: flex;
+  justify-content: space-between;
+  filter: invert(20%) hue-rotate(10deg) grayscale(20%) contrast(1) saturate(1);
+  border-radius: 10px;
+  cursor: pointer;
+
+  &__title{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  &__balance{
+    font-size: 53px;
+    line-height: 68px;
+    color: #F8F8F8;
+    margin-top: 17px;
+  }
+
+  &__label{
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    background: var.$white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & span{
+      display: flex;
+      color: var.$app-pink;
+      font-size: 64px;
+      line-height: 82px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
