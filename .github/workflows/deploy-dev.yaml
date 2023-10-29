@@ -42,13 +42,13 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
         - name: Connect to Server
-          uses: garygrossgarten/github-action-scp@release
+          uses: appleboy/scp-action@v0.1.4
           with: 
             host: ${{secrets.SSH_HOST}}
-            privateKey: ${{secrets.SSH_KEY}}
+            key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
-            local: "~/files_art/artifact/"
-            remote: "/var/www/bookreviews.uz/html/"
+            source: "~/files_art/artifact/"
+            target: "/var/www/bookreviews.uz/html/"
             recursive: true
 
           
