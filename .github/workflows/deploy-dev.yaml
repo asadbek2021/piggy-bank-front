@@ -1,0 +1,52 @@
+name: Build & Deploy
+
+on:
+
+  push:
+
+    branches:
+      - "main"
+
+jobs:
+
+  clone_repo: 
+
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Clone repository
+          uses: appleboy/ssh-action@v1.0.0
+          with: 
+            host: ${{secrets.SSH_HOST}}
+            key: ${{secrets.SSH_KEY}}
+            username: ${{secrets.SSH_USERNAME}}
+
+            scripts: |
+              cd /
+              mdir piggy-bank-frontend
+              cd piggy-bank-frontend
+              git clone git@github.com:asadbek2021/piggy-bank-front.git
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['16.x', '18.x']
+
+    steps:
+      - name: Check for node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{metrix.node-version}}
+      - run: npm ci; npm run build; npm run start
+        with:
+          scripts: |
+            echo 'Project deployed and build successfully' 
+
+          
+          
+        
+
+        
