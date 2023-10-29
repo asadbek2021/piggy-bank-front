@@ -32,23 +32,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact
-          path: ~/files_art/
-
-  deploy: 
-      needs: build
-      runs-on: ubuntu-latest
-      environment: Development
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - name: Connect to Server
-          uses: appleboy/scp-action@v0.1.4
-          with: 
-            host: ${{secrets.SSH_HOST}}
-            key: ${{secrets.SSH_KEY}}
-            username: ${{secrets.SSH_USERNAME}}
-            source: "~/files_art/*"
-            target: "/var/www/bookreviews.uz/html/"
+          path: distfiles
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Connect to Server
+        uses: appleboy/scp-action@v0.1.4
+        with: 
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USERNAME}}
+          source: "distfiles/*"
+          target: "/var/www/bookreviews.uz/html/"
 
           
           
