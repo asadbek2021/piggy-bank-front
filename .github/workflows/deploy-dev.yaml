@@ -25,13 +25,12 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v3
         with:
-          name: deploy_dist
+          name: my-artifact
           path: dist
-      - name: Archive code coverage result
-        if: success()
-        uses: actions/upload-artifact@v3
+
+      - uses: actions/download-artifact@v3
         with:
-          name: artifact
+          name: my-artifact
           path: distfiles
       - name: Checkout
         uses: actions/checkout@v4
