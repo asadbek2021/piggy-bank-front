@@ -8,7 +8,7 @@ import { IAccounts } from '../main/models/Accounts';
   providedIn: 'root',
 })
 export class AccountService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = '/api';
   activeAccount!: IAccounts;
   editMode = false;
   editMode$ = new Subject<boolean>();

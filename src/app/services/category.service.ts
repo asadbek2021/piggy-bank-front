@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class CategoryService {
-  private baseUrl = 'http://localhost:3000/category';
+  private baseUrl = '/api/category';
   categories$ = new Subject<ICategory[]>();
   categories: ICategory[] = [];
   constructor(private http: HttpClient) {}

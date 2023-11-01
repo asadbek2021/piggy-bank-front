@@ -9,7 +9,7 @@ import { ITransaction } from '../models/Transactions.model';
   providedIn: 'root',
 })
 export class TransactionService {
-  private baseUrl = 'http://localhost:3000/transaction';
+  private baseUrl = '/api/transaction';
   selectedTransaction!: ITransaction;
   selectedType$ = new Subject<string>();
   editMode$ = new Subject<boolean>();

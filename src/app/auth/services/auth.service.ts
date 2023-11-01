@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private backednUrl = 'http://localhost:3000/auth';
+  private backednUrl = '/api/auth';
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
