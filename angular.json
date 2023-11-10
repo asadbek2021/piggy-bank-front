@@ -71,8 +71,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "budgetify:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "budgetify:build"
           },
           "configurations": {
             "production": {
